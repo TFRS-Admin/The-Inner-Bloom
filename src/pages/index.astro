@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
+import TrustBar from "@/components/TrustBar.astro";
+import Services from "@/components/Services.astro";
+import Insurance from "@/components/Insurance.astro";
+import About from "@/components/About.astro";
+import FAQSection from "@/components/FAQSection.astro";
+import CrisisNotice from "@/components/CrisisNotice.astro";
+import ContactFooter from "@/components/ContactFooter.astro";
+
+const title = "Inner Bloom Psychiatry | Telehealth Psychiatric Care in Texas";
+const description =
+  "Marie Newball, PMHNP-BC provides compassionate, trauma-informed psychiatric evaluations and medication management by telehealth across Texas. Insurance and self-pay visits available.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <TrustBar />
+    <Services />
+    <Insurance />
+    <About />
+    <FAQSection />
+    <CrisisNotice />
+  </main>
+  <ContactFooter />
+</BaseLayout>

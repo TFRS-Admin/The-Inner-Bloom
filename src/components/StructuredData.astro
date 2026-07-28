@@ -1,0 +1,60 @@
+---
+import { practice, faqs } from "@/data/practice";
+
+const siteUrl = "https://theinnerbloompsychiatry.com";
+
+const medicalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": `${siteUrl}/#practice`,
+  name: practice.name,
+  url: siteUrl,
+  email: practice.contact.email,
+  telephone: practice.contact.phoneHref.replace("tel:", ""),
+  faxNumber: practice.contact.fax,
+  areaServed: {
+    "@type": "State",
+    name: "Texas",
+  },
+  medicalSpecialty: "Psychiatric",
+  availableService: practice.services.map((s) => ({
+    "@type": "MedicalProcedure",
+    name: s.title,
+    description: s.description,
+  })),
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  employee: {
+    "@type": "Person",
+    name: practice.provider.fullTitle,
+    jobTitle: "Psychiatric Mental Health Nurse Practitioner (PMHNP-BC)",
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "NPI",
+      value: practice.provider.npi,
+    },
+  },
+  knowsLanguage: practice.languages,
+  priceRange: `${practice.pricing.followUp}–${practice.pricing.initialVisit}`,
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(medicalBusiness)} is:inline />
+<script type="application/ld+json" set:html={JSON.stringify(faqPage)} is:inline />

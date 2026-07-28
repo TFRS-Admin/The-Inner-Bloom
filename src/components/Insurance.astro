@@ -1,0 +1,56 @@
+---
+import { practice, bookingLinks } from "@/data/practice";
+---
+
+<section id="insurance" class="bg-white py-20">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-medium text-ink-900 sm:text-4xl">Insurance &amp; pricing</h2>
+      <p class="mt-4 text-lg text-ink-600">
+        Book with insurance through Headway, or pay out of pocket — whichever fits you better.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-2">
+      <div class="rounded-2xl border border-bloom-200 p-8">
+        <h3 class="text-xl font-medium text-ink-900">Insurance (via Headway)</h3>
+        <p class="mt-2 text-sm text-ink-500">
+          Cost depends on your plan's benefits. Currently accepted plans:
+        </p>
+        <ul class="mt-4 grid grid-cols-1 gap-x-4 gap-y-2 text-ink-700 sm:grid-cols-2">
+          {practice.insurers.map((insurer) => <li class="flex items-start gap-2 text-sm"><span aria-hidden="true" class="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-sage-500" />{insurer}</li>)}
+        </ul>
+        <a
+          href={bookingLinks.insurance.href}
+          class="mt-6 inline-block rounded-full bg-sage-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sage-800"
+        >
+          Book with insurance
+        </a>
+      </div>
+
+      <div class="rounded-2xl border border-bloom-200 p-8">
+        <h3 class="text-xl font-medium text-ink-900">Self-pay</h3>
+        <dl class="mt-4 space-y-3">
+          <div class="flex items-baseline justify-between border-b border-bloom-100 pb-3">
+            <dt class="text-ink-700">Initial evaluation</dt>
+            <dd class="text-xl font-semibold text-ink-900">{practice.pricing.initialVisit}</dd>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <dt class="text-ink-700">Follow-up visit</dt>
+            <dd class="text-xl font-semibold text-ink-900">
+              {practice.pricing.followUp}
+              <span class="text-sm font-normal text-ink-500">/{practice.pricing.followUpCadence.replace("per ", "")}</span>
+            </dd>
+          </div>
+        </dl>
+        <p class="mt-4 text-sm text-ink-500">{practice.pricing.note}</p>
+        <a
+          href={bookingLinks.selfPay.href}
+          class="mt-6 inline-block rounded-full border border-sage-700 px-6 py-3 text-sm font-semibold text-sage-800 transition hover:bg-sage-50"
+        >
+          Book self-pay
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
