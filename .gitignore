@@ -14,6 +14,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.astro
 *.local
 
 # Editor directories and files
@@ -28,4 +29,3 @@ dist-ssr
 *.sw?
 
 .env
-base44/.app.jsonc

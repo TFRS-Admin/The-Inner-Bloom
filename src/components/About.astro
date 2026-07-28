@@ -1,0 +1,46 @@
+---
+import { practice } from "@/data/practice";
+---
+
+<section id="about" class="mx-auto max-w-6xl px-6 py-20">
+  <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+    <div class="overflow-hidden rounded-2xl border border-bloom-200 bg-white shadow-sm">
+      <img
+        src="/images/marie-newball.jpg"
+        alt={`${practice.provider.fullTitle}`}
+        width="387"
+        height="419"
+        class="h-full w-full object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <div>
+      <h2 class="text-3xl font-medium text-ink-900 sm:text-4xl">About {practice.provider.name}</h2>
+      <p class="mt-4 text-lg text-ink-600">
+        {practice.provider.fullTitle} is a psychiatric mental health nurse practitioner providing
+        {" "}{practice.services.map((s) => s.title.toLowerCase()).join(", ")} entirely by telehealth.
+        Care is approachable and trauma-informed, with a focus on {practice.focusAreas.slice(0, -1).join(", ")}, and {practice.focusAreas[practice.focusAreas.length - 1].toLowerCase()}.
+      </p>
+      <p class="mt-4 text-lg text-ink-600">
+        Visits are offered in English and Spanish for patients of all ages — from children to older
+        adults — {practice.hours.toLowerCase()}.
+      </p>
+
+      <dl class="mt-8 grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
+        <div class="rounded-xl bg-sage-50 p-4">
+          <dt class="font-semibold text-sage-800">Credential</dt>
+          <dd class="mt-1 text-ink-700">{practice.provider.credentials}</dd>
+        </div>
+        <div class="rounded-xl bg-sage-50 p-4">
+          <dt class="font-semibold text-sage-800">NPI</dt>
+          <dd class="mt-1 text-ink-700">{practice.provider.npi}</dd>
+        </div>
+        <div class="rounded-xl bg-sage-50 p-4">
+          <dt class="font-semibold text-sage-800">Serving</dt>
+          <dd class="mt-1 text-ink-700">Texas</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

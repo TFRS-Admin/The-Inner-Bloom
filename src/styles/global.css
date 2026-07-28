@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bloom-50: #fbf7f4;
+  --color-bloom-100: #f5ebe4;
+  --color-bloom-200: #e9d3c6;
+  --color-bloom-300: #dab5a0;
+  --color-bloom-400: #c7937a;
+  --color-bloom-500: #b3765c;
+  --color-bloom-600: #96604a;
+  --color-bloom-700: #7a4d3d;
+  --color-bloom-800: #644036;
+  --color-bloom-900: #54372f;
+
+  --color-sage-50: #f4f6f3;
+  --color-sage-100: #e5eae2;
+  --color-sage-200: #ccd6c7;
+  --color-sage-300: #a9bba1;
+  --color-sage-400: #829a77;
+  --color-sage-500: #647d5a;
+  --color-sage-600: #4e6446;
+  --color-sage-700: #3f5038;
+  --color-sage-800: #354130;
+  --color-sage-900: #2c362a;
+
+  --color-ink-50: #f6f6f7;
+  --color-ink-100: #e2e2e5;
+  --color-ink-200: #c5c5cb;
+  --color-ink-300: #9d9da8;
+  --color-ink-400: #71717e;
+  --color-ink-500: #565662;
+  --color-ink-600: #454550;
+  --color-ink-700: #393940;
+  --color-ink-800: #2f2f35;
+  --color-ink-900: #1f1f24;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bloom-50 text-ink-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-sage-600;
+  }
+}
