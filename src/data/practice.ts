@@ -79,19 +79,15 @@ export const practice = {
   },
 } as const;
 
-// TODO(booking-links): Confirm and replace before launch.
-// - Headway: exact provider booking URL (e.g. https://headway.co/providers/marie-newball-...)
-//   was not available at build time — currently falls back to Headway's general site.
-// - SimplePractice: exact self-pay booking URL was requested but not yet provided.
-//   Note: the source-of-truth Notion doc's confirmed booking architecture actually
-//   routes self-pay through Calendly + Zoom, not SimplePractice — flagged to the
-//   client; using SimplePractice here per their explicit instruction.
+// TODO(booking-links): SimplePractice self-pay URL still needed before launch.
+// Note: the source-of-truth Notion doc's confirmed booking architecture actually
+// routes self-pay through Calendly + Zoom, not SimplePractice — flagged to the
+// client; using SimplePractice here per their explicit instruction.
 export const bookingLinks: { insurance: BookingLink; selfPay: BookingLink } = {
   insurance: {
     label: "Book with Insurance (Headway)",
-    href: "https://headway.co",
-    isPlaceholder: true,
-    note: "Placeholder — swap in Marie Newball's exact Headway provider URL.",
+    href: "https://care.headway.co/providers/marie-newball",
+    isPlaceholder: false,
   },
   selfPay: {
     label: "Book Self-Pay (SimplePractice)",
